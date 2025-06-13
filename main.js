@@ -23,7 +23,7 @@ somma(3, 2)
   }
 
 */
-
+/*
 // Arrow function
 const somma = (num1, num2) => (num1 + num2);
 
@@ -197,13 +197,26 @@ sequenzaOperazioni([
 
   - Accetta una funzione e un tempo `limite`.
   - Restituisce una nuova funzione che esegue l'originale **al massimo una volta ogni n millisecondi**.
-
-  ### Esempio:
-  ```js
-  const throttledLog = creaThrottler(() => console.log("Eseguito!"), 2000);
-
-  throttledLog(); // ✅ "Eseguito!"
-  throttledLog(); // ❌ Ignorato
-  setTimeout(throttledLog, 2500); // ✅ "Eseguito!" dopo 2.5 secondi
-  ```
 */
+
+function creaThrottler(callback, limite) {
+
+  let ultimaEsecuzione = 0;
+
+  return () => {
+    const now = Date.now()
+    if (now - ultimaEsecuzione >= limite) {
+      ultimaEsecuzione = now
+      callback()
+    } else {
+      console.log('Ignoro esecuzione throttled');
+    }
+
+  }
+}
+
+const throttledLog = creaThrottler(() => console.log("Snack 10 Eseguito!"), 2000);
+
+throttledLog(); // ✅ "Eseguito!"
+throttledLog(); // ❌ Ignorato
+setTimeout(throttledLog, 2500); // ✅ "Eseguito!" dopo 2.5 secondi
