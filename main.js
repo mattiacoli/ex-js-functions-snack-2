@@ -7,20 +7,27 @@
   - Infine, riscrivi la funzione `somma` con la **sintassi delle arrow functions**.
 */
 
-// somma(3, 2)
+/*  Funzione dichiarativa
 
-// function somma(num1, num2) {
-//   return num1+num2
+somma(3, 2)
 
-// }
+  function somma(num1, num2) {
+   return num1+num2
+  }
+*/
 
-// const somma = function (num1, num2) {
-//  return num1+num2
-// }
+/*  Funzione anonima assegnata a una varibile
 
+  const somma = function (num1, num2) {
+    return num1+num2
+  }
+
+*/
+
+// Arrow function
 const somma = (num1, num2) => (num1 + num2);
 
-console.log('Sanck 1 : ', somma(3, 2))
+console.log('Snack 1 : ', somma(3, 2))
 
 
 /*
